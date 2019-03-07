@@ -70,13 +70,12 @@ for tag in tags:
     print("Type {}: {}".format(tag[0], tag[1]))
 
 
-from typing import *
 # Get only labels (use in evaluation)
-def get_labels(doc) -> List[str]:
+def get_labels(doc):
     return [label for (c, label) in doc]
 
 # Character type
-def get_ctype(c: str) -> str:
+def get_ctype(c):
     for tag in tags:
         if c in tag[1]:
             return tag[0]
@@ -126,7 +125,7 @@ def cutok(txt):
  strdata=""
  for j in list(zip(listtext,t)):
   if j[1]=="B" and strdata!="":
-   strdata+="|"+j[0]
+   strdata+="|"
   strdata+=j[0]
  return strdata
 crf2 = sklearn_crfsuite.CRF(
